@@ -1,5 +1,5 @@
 const express = require('express');
-const commons = require('./commons');
+const commons = require('./common');
 const router = express.Router();
 
 router.post('/register', (req, res) => {

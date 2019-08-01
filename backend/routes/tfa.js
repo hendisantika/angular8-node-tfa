@@ -1,7 +1,7 @@
 const express = require('express');
 const speakeasy = require('speakeasy');
 const QRCode = require('qrcode');
-const commons = require('./commons');
+const commons = require('./common');
 const router = express.Router();
 
 router.post('/tfa/setup', (req, res) => {

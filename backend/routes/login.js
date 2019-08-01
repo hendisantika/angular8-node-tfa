@@ -1,6 +1,6 @@
 const express = require('express');
 const speakeasy = require('speakeasy');
-const commons = require('./commons');
+const commons = require('./common');
 const router = express.Router();
 
 router.post('/login', (req, res) => {
