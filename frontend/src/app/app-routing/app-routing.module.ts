@@ -3,8 +3,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from '../components/home/home.component';
 import {LoginComponent} from '../components/login/login.component';
 import {RegisterComponent} from '../components/register/register.component';
-import {AuthGuardGuard} from '../guards/AuthGuard/auth-guard.guard';
-import {LoginGuard} from '../guards/Login/login.guard';
+import {AuthGuardGuard} from '../guards/auth-guard.guard';
+import {LoginGuard} from '../guards/login.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full', canActivate: [LoginGuard]},
