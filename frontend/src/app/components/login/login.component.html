@@ -1,3 +1,26 @@
-<p>
-  login works!
-</p>
+<div class="container">
+  <div class="card card-container">
+    <img class="profile-img-card" id="profile-img" src="assets/images/avatar_2x.png"/>
+    <form #loginForm="ngForm" (ngSubmit)="loginUser()" class="form-signin">
+      <input #uname="ngModel" [(ngModel)]="userObject.uname" autocomplete="off" autofocus class="form-control"
+             id="uname"
+             name="uname" placeholder="Username" required title="Please enter the username" type="text">
+      <input #upass="ngModel" [(ngModel)]="userObject.upass" autocomplete="off" class="form-control" id="upass"
+             name="upass"
+             placeholder="Password" required title="Please enter the password" type="password">
+      <input #authcode="ngModel" *ngIf="this.tfaFlag" [(ngModel)]="userObject.authcode" autocomplete="off"
+             class="form-control" id="authcode"
+             name="authcode" placeholder="Two-Factor Auth code" required
+             title="Please enter the code" type="text">
+      <button
+        [disabled]="uname?.errors?.required || upass?.errors?.required || (this.tfaFlag && authcode?.errors?.required)"
+        class="btn btn-lg btn-primary btn-block btn-signin"
+        type="submit">Sign
+        in
+      </button>
+      <p style="text-align:center;">Want to reset login? <a [routerLink]="['/register']">Register
+        here</a></p>
+      <p *ngIf="errorMessage" class="text-danger" style="text-align:center;">{{errorMessage}}</p>
+    </form>
+  </div>
+</div>
