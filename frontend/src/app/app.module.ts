@@ -9,6 +9,7 @@ import {RegisterComponent} from './components/register/register.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {LoginServiceService} from './services/login-service/login-service.service';
+import {AppRoutingModule} from './app-routing/app-routing.module';
 
 @NgModule({
   declarations: [
