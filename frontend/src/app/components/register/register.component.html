@@ -1,3 +1,24 @@
-<p>
-  register works!
-</p>
+<div class="container">
+  <div class="card card-container">
+    <img class="profile-img-card" id="profile-img" src="assets/images/avatar_2x.png"/>
+    <form #registerForm="ngForm" (ngSubmit)="registerUser()" class="form-signin">
+      <input #uname="ngModel" [(ngModel)]="userObject.uname" autocomplete="off" autofocus class="form-control"
+             id="uname"
+             name="uname" placeholder="Username" required title="Please enter the username" type="text">
+      <input #upass="ngModel" [(ngModel)]="userObject.upass" autocomplete="off" class="form-control" id="upass"
+             name="upass" placeholder="Password" required title="Please enter the password" type="password">
+      <input #uconfirmpass="ngModel" [(ngModel)]="confirmPass" autocomplete="off" class="form-control" id="confirmpass"
+             name="confirmpass" placeholder="Confirm password" required title="Please re-enter the password"
+             type="password">
+      <button
+        [disabled]="(uname?.errors?.required || upass?.errors?.required || uconfirmpass?.errors?.required) || (upass.value !== uconfirmpass.value)"
+        class="btn btn-lg btn-primary btn-block btn-signin"
+        type="submit">Sign
+        up
+      </button>
+      <p style="text-align:center;">Remember credentials? <a [routerLink]="['/login']">Login
+        here</a></p>
+      <p *ngIf="errorMessage" class="text-success" style="text-align:center;">{{errorMessage}}</p>
+    </form>
+  </div>
+</div>
